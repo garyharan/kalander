@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Kalander - Prototype based calendar</title>
+        <script type="text/javascript" src="javascript/prototype.js"></script> 
+        <script type="text/javascript" src="javascript/scriptaculous.js"></script>
+        <script type="text/javascript" src="javascript/calendar.js"></script> 
+
+        <style type="text/css" media="screen">
+					.calendar_table{
+						background: #CCC;
+						border: 1px solid #AAA ;
+						border-collapse: collapse;
+					}
+					.calendar_table_thead{
+						background: #DDD;
+					}
+					.calendar_table_header_th, .calendar_table_header_dayName{
+						padding: 3px;
+						font-size: 12px;
+						font-family: "Bitstream Vera", Verdana;
+					}
+					.calendar_table_header_navLink{
+						color: #666;
+						font-weight: bold;
+						font-size: 15px;
+						font-family: "Bitstream Vera", Verdana;
+						text-decoration: none;
+						margin: 2px;
+					}
+					.calendar_table_header_navLink:hover{
+						color: #777;
+						text-decoration: underline;
+					}
+					.calendar_cell_curr_month{
+						text-align: right;
+						cursor: pointer;
+						color: #333;
+						font-size: 12px;
+						font-family: "Bitstream Vera", Verdana;
+					}
+					.calendar_cell_curr_month:hover{
+						background: #DDD;
+						cursor: pointer;
+					}
+					.calendar_cell_not_curr_month{
+						text-align: right;
+						color: #999;
+						font-size: 12px;
+						font-family: "Bitstream Vera", Verdana;
+					}
+					.calendar_cell_not_curr_month::hover{
+						background: #DDD;
+						cursor: pointer;
+					}
+					.calendar_cell_disabled{
+						background: #999 !important ;
+						color: #777;
+						cursor: default;
+					}
+					.calendar_cell_today{
+						font-weight: bold;
+					}
+        </style>
+        
+    </head>
+    <body> 
+        
+        <h1>Kalander</h1>
+        <h2>Prototype based calendar</h2>
+        
+        <p>Kalander (from Kala in Sanskrit meaning time) uses and extends the scrip.aculo.us library.  Its aim is to ease the use of sql formatted dates in web applications without the need to use 3 inputs to do the work.</p>
+        
+				<h3>Examples</h3>
+				
+				<p>The following examples show a few of the options that you can use.</p>
+				
+        <p>
+					Add any javascript function to launch after you select a date:<br/>
+					<code>
+						{ onComplete:function(element){ new Effect.Highlight(element) } }
+					</code>
+					<br/>
+					Result: <input type="text" name="date_1" id="date_1" value="2006-12-15" onfocus="new Date().datePicker('date_1', { onComplete:function(element){ new Effect.Highlight(element)}})" />
+        </p>
+        
+        <p>
+					Ensure the dates are only working week days:<br/>
+          Result: <input type="text" name="date_2" id="date_2" value="" onfocus="new Date().datePicker('date_2', { weekends:false })"/>
+  				<br/>
+					<code>
+						{  weekends:false }
+					</code>
+	      </p>
+
+        <p>
+					Restrict dates by providing an array of sql formatted dates:<br/>
+          Result: <input type="text" name="date_3" id="date_3" value="" onfocus="new Date().datePicker('date_3', { disabled: ['2006-12-18','2006-12-25','2006-12-31'] })"/>
+					<br/>
+					<code>
+						{  disabled: ['2006-12-18','2006-12-25','2006-12-31'] }
+					</code>
+        </p>
+
+        <p>
+					Only select dates after a given sql formatted date:<br/>
+          Result: <input type="text" name="date_4" id="date_4" value="" onfocus="new Date().datePicker('date_4', { after: '2006-12-18' })"/>
+					<br/>
+					<code>
+						{  after: '2006-12-18' }
+					</code>
+        </p>
+
+        <p>
+					Only allow dates to be selected after a given date displayed in a form element:<br/>
+          Result: <input type="text" name="date_5" id="date_5" value="" onfocus="new Date().datePicker('date_5', { after: 'date_1' })"/>
+					<br/>
+					<code>
+						{  after: 'date_1' }
+					</code>
+        </p>
+
+        <p>
+					The same format (sql or id of a form element) can be used to ensure the date is before another:<br/>
+          Result: <input type="text" name="date_6" id="date_6" value="" onfocus="new Date().datePicker('date_6', { before: 'date_1' })"/>
+					<br/>
+					<code>
+						{  before: 'date_1' }
+					</code>
+        </p>
+
+				<p>
+					Same as the first example except with a click handler:<br/>
+          Result: <span id="date_7">2007-01-01</span> <a href="javascript:new Date().datePicker('date_7', { onComplete:function(element){ new Effect.Highlight(element)} })">calendar</a>
+					<br/>
+					<code>
+						{ onComplete:function(element){ new Effect.Highlight(element)} }
+					</code>
+        </p>
+
+							
+
+    </body> 
+</html>
